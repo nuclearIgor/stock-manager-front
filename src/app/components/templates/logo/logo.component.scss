@@ -1,0 +1,13 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 5px;
+  margin-right: 20px ;
+}
+
+.logo-container img {
+  min-height: 32px;
+  max-height: 60px;
+}

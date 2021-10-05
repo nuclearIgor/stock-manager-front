@@ -1,0 +1,27 @@
+<h6 matDialogTitle>Pesquisa de produto por nome</h6>
+<mat-dialog-content>
+
+<form #queryParam="ngForm" (ngSubmit)="changeQuery(queryParam.value)">
+    <mat-form-field>
+        <input
+        matInput
+        placeholder="insira o nome do produto"
+        ngModel
+        name="query"
+        required
+        >
+    </mat-form-field>
+
+    <button mat-raised-button [matDialogClose]=queryParam.value.query [disabled]="queryParam.invalid">Pesquisar</button>
+    <button mat-raised-button matDialogClose="noaction">cancelar</button>
+
+</form>
+</mat-dialog-content>
+<!--<mat-form-field></mat-form-field>-->
+<!--<h3 mat-dialog-title>Insira o nome do produto</h3>-->
+<!--<mat-dialog-content>Dialog contentDialog contentDialog contentDialog contentDialog contentDialog contentDialog contentDialog content</mat-dialog-content>-->
+
+<!--<mat-dialog-actions>-->
+<!--    <button mat-dialog-close="true" >botao 1</button>-->
+<!--    <button mat-dialog-close="false">botao 2</button>-->
+<!--</mat-dialog-actions>-->

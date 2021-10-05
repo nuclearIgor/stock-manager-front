@@ -1,0 +1,38 @@
+@import './src/styles';
+
+table {
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-container input {
+  margin-left: 10px;
+}
+
+.table-row {
+  transition: background-color 150ms;
+
+  i {
+    color: $sat-blue;
+  }
+
+  .delete {
+    color: red;
+  }
+}
+
+.table-row:hover {
+  background-color: $sat-blue;
+  td {
+    color: white;
+}
+
+  .edit {
+    color: #fff;
+    cursor: pointer;
+  }
+}

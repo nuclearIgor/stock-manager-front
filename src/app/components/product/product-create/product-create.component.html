@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-title>Novo produto</mat-card-title>
+
+    <form #form="ngForm" (ngSubmit)="addProduct(form)" novalidate>
+        <mat-form-field>
+            <input
+            matInput
+            placeholder="Nome do produto"
+            ngModel
+            name="productName"
+            required
+            >
+        </mat-form-field>
+
+        <mat-form-field>
+            <input
+            matInput
+            placeholder="Quantidade"
+            ngModel
+            name="stock"
+            required
+            >
+        </mat-form-field>
+
+        <button type="submit"
+        [disabled]="form.invalid"
+        >Adicionar</button>
+
+        <button (click)="cancel()">Cancelar</button>
+
+    </form>
+</mat-card>

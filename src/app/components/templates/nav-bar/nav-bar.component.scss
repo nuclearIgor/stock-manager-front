@@ -1,0 +1,36 @@
+@import './src/styles';
+
+.sidenav {
+  width: 200px;
+  //border-right: 1px solid $sat-green;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //justify-content: center;
+
+  .nav-hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 15px 10px 0 10px;
+    height: 45px;
+    width: 90%;
+
+    background-color: $sat-green;
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    transition: opacity, width, height 150ms;
+  }
+
+  .nav-hover:hover {
+    width: 93%;
+    height: 45px;
+    filter: opacity(85%);
+  }
+}
