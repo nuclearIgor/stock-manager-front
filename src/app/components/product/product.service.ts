@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "./product.model";
 import {map, catchError} from 'rxjs/operators'
-import {Entry} from "../../views/reports/entry.model";
+import {Entry} from "../views/reports/entry.model";
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +51,10 @@ export class ProductService {
 
   getReportByName(name: string): Observable<Entry[]> {
     return this.http.get<Entry[]>(`http://localhost:8080/entry/name/${name}`)
+  }
+
+  getReportByDate(date: string): Observable<Entry[]> {
+    return this.http.get<Entry[]>(`http://localhost:8080/entry/date/${date}`)
   }
 }
 

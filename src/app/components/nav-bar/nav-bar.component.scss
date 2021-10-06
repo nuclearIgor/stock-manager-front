@@ -1,0 +1,27 @@
+@import '../../../styles';
+
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $background;
+  border-bottom: 1px solid $sat-green;
+  height: 100px;
+}
+
+#sidenav {
+  width: 200px;
+  //border-right: 1px solid $sat-green;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //justify-content: center;
+
+}

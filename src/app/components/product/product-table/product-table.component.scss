@@ -27,6 +27,7 @@ table {
 
 .table-row:hover {
   background-color: $sat-blue;
+  cursor: pointer;
   td {
     color: white;
 }

@@ -1,0 +1,72 @@
+<mat-toolbar class="header mat-elevation-z1">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'"
+            (click)="this.sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+
+    <app-logo (click)="navigate()"></app-logo>
+
+    <span>
+          <button *ngIf="sidenav.mode ==='side'" class="nav-hover"
+              mat-raised-button (click)="openNameDialog()">
+                    <i class="material-icons">
+                        search
+                    </i>
+                    Pesquisa por nome
+                </button>
+    </span>
+</mat-toolbar>
+
+<mat-sidenav-container class="container" hasBackdrop="false">
+    <i class="material-icons">menu</i>
+
+
+    <mat-sidenav #sidenav="matSidenav" fixedTopGap="100" class="sidenav" mode="side" opened fixedInViewport="true">
+
+        <mat-nav-list class="nav-list">
+            <a routerLink=""  class="nav-hover">
+                <i class="material-icons">
+                    home
+                </i>
+                Estoque
+            </a>
+            <a (click)="openDateDialog()" class="nav-hover">
+                <i class="material-icons">
+                    search
+                </i>
+                Relatório por data
+            </a>
+            <button
+            class="nav-hover"
+            (click)="openNewProductDialog()"
+            mat-raised-button>
+                <i class="material-icons">
+                    add
+                </i>
+                adicionar produto
+            </button>
+
+            <button *ngIf="sidenav.mode ==='over'" class="nav-hover"
+                    mat-raised-button (click)="openNameDialog()">
+                <i class="material-icons">
+                    search
+                </i>
+                Pesquisa por nome
+            </button>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet>
+
+            </router-outlet>
+        </mat-sidenav-content>
+</mat-sidenav-container>
+

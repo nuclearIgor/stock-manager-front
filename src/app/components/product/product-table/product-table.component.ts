@@ -1,9 +1,7 @@
-import {Component, OnInit, OnChanges, SimpleChanges, DoCheck} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../product.service";
 import {Product} from "../product.model";
 import {Store} from "@ngrx/store";
-import {Observable} from "rxjs";
-import * as productActions from '../../../store/actions'
 import {Router} from "@angular/router";
 
 @Component({
@@ -14,8 +12,7 @@ import {Router} from "@angular/router";
 export class ProductTableComponent implements OnInit {
 
   products: Product[]
-  // products$: Observable<Product[]> = this.store.select(state => state.products)
-  displayedColumns = ['actions', 'productName', 'stock', 'inDate', 'outDate', 'delete']
+  displayedColumns = ['productName', 'stock', 'inDate', 'outDate']
 
   constructor(
       private productService: ProductService,
@@ -25,7 +22,6 @@ export class ProductTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.read().subscribe(products => this.products = products)
-    // this.store.dispatch(productActions.loadProducts())
   }
 
   redirect(productName: string): void {

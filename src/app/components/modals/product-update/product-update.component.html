@@ -1,0 +1,58 @@
+<mat-card *ngIf="data.product !== null">
+    <mat-card-title>Novo lançamento</mat-card-title>
+
+    <form #f="ngForm"  (ngSubmit)="data.onSubmit(f)" novalidate>
+        <mat-form-field class="field">
+            <input
+            matInput
+            placeholder="Nome do produto"
+            [(ngModel)]="product!.productName"
+            required
+            ngModel
+            name="productName"
+            >
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <input
+            matInput
+            placeholder="Quantia em estoque"
+            [(ngModel)]="product!.stock"
+            ngModel
+            name="stock"
+            required
+            disabled
+            >
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <mat-label>Tipo de lançamento</mat-label>
+            <mat-select
+                    required
+                    ngModel
+                    name="type"
+            >
+
+                <mat-option *ngFor="let option of options" [value]="option.value"
+                >
+                    {{option.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <input
+                matInput
+                type="number"
+                placeholder="Quantidade"
+                ngModel
+                name="quantity"
+                required
+            >
+        </mat-form-field>
+
+        <button [disabled]="f.invalid" type="submit" [matDialogClose]="f">enviar</button>
+        <button  matDialogClose>cancelar</button>
+
+    </form>
+</mat-card>
