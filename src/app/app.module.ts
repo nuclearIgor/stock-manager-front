@@ -23,7 +23,6 @@ import {MatSelectModule} from "@angular/material/select";
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
 import {MatButtonModule} from "@angular/material/button";
-import { HeaderComponent } from './components/templates/header/header.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {StoreModule} from "@ngrx/store";
 import * as fromReducers from "./store/reducers";
@@ -33,6 +32,8 @@ import { LogoComponent } from './components/templates/logo/logo.component';
 import { NameSearchModalComponent } from './components/templates/nav-bar/name-search-modal/name-search-modal.component';
 import { ReportNameComponent } from './views/reports/report-name/report-name.component';
 import { ReportDateComponent } from './views/reports/report-date/report-date.component';
+import { ProductComponent } from './views/product/product.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
     declarations: [
@@ -44,11 +45,11 @@ import { ReportDateComponent } from './views/reports/report-date/report-date.com
     ProductUpdateComponent,
     ProductCreateComponent,
     ProductDeleteComponent,
-    HeaderComponent,
     LogoComponent,
     NameSearchModalComponent,
     ReportNameComponent,
-    ReportDateComponent
+    ReportDateComponent,
+    ProductComponent
     ],
     entryComponents: [NameSearchModalComponent],
     imports: [
@@ -67,10 +68,12 @@ import { ReportDateComponent } from './views/reports/report-date/report-date.com
         MatButtonModule,
         MatToolbarModule,
         MatDialogModule,
+        MatSidenavModule,
         StoreModule.forRoot({
             productsReducer: fromReducers.reducer
         }),
         EffectsModule.forRoot([ProductsEffects]),
+        MatIconModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

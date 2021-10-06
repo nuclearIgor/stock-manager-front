@@ -6,3 +6,68 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 $sat-blue: rgb(6, 72, 116);
 $sat-green: rgb(39, 181, 122);
 $background: #fff;
+
+.nav-hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 15px 10px 0 10px;
+  height: 45px;
+  width: 90%;
+
+  background-color: $sat-green;
+  color: #ffffff;
+
+  border-radius: 8px;
+
+  transition: opacity, width, height 150ms;
+
+  &:hover {
+    width: 93%;
+    height: 45px;
+    filter: opacity(85%);
+  }
+}
+
+
+
+table {
+    min-width: 425px;
+    text-align: center;
+
+  //display: flex;
+  //flex-direction: column;
+
+  th {
+    font-size: 10px;
+    text-align: center;
+    //border: 1px solid red;
+    //text-align: center;
+    align-self: center;
+    //display: flex;
+    //justify-content: space-between;
+    width: 15%;
+    height: 40px;
+
+  }
+
+  tr {
+  display: flex;
+    justify-content: space-between;
+  }
+
+  td {
+    width: 16.6%;
+    text-overflow: fade;
+
+    font-size: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-right: $sat-blue 1px solid;
+  }
+
+}

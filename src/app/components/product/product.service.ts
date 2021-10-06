@@ -32,6 +32,10 @@ export class ProductService {
     return this.http.get<Product>(`${this.apiUrl}/find/${id}`);
   }
 
+  readByName(name: string): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/name/${name}`)
+  }
+
   update(id: number, requestData: Entry): Observable<Product> {
     // return this.http.put<Product>(`http://localhost:8080/products/update/${id}`, requestData)
     return this.http.put<Product>(`${this.apiUrl}/update/${id}`, requestData)

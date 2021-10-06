@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Product} from "../product.model";
 import {ProductService} from "../product.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -15,7 +15,7 @@ interface UpdateType {
   templateUrl: './product-update.component.html',
   styleUrls: ['./product-update.component.scss']
 })
-export class ProductUpdateComponent implements OnInit {
+export class ProductUpdateComponent implements OnInit, AfterViewInit {
 
   product: Product
 
@@ -30,11 +30,28 @@ export class ProductUpdateComponent implements OnInit {
       private route: ActivatedRoute
   ) { }
 
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get("id");
-    this.productService.readById(id).subscribe(
-        product => this.product = product
-    )
+  // ngOnInit(): void {
+  //   const name = this.route.snapshot.paramMap.get("name");
+  //   this.productService.readByName(name).subscribe(
+  //       product => {
+  //         this.product = product
+  //         console.log(product)
+  //         console.log(this.product)
+  //       }
+  //
+  //   )
+  // }
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get("id")
+    this.productService.readById(id).subscribe(product => {this.product = product
+    console.log(product)})
+  }
+
+  ngAfterViewInit() {
+    const name = this.route.snapshot.paramMap.get("name");
+    this.productService.readByName(name).subscribe(
+        product => this.product = product)
   }
 
   public onSubmit(formData: NgForm): void {

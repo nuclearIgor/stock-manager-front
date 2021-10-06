@@ -6,6 +6,7 @@ import {ProductUpdateComponent} from "./components/product/product-update/produc
 import {ProductCreateComponent} from "./components/product/product-create/product-create.component";
 import {ProductDeleteComponent} from "./components/product/product-delete/product-delete.component";
 import {ReportNameComponent} from "./views/reports/report-name/report-name.component";
+import {ProductComponent} from "./views/product/product.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'relatorios/:name',
     component: ReportNameComponent
+  },
+  {
+    path: 'product/:name',
+    component: ProductComponent
   }
 ];
 
