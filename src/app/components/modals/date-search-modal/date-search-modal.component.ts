@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-date-search-modal',
@@ -9,9 +10,10 @@ export class DateSearchModalComponent implements OnInit {
 
   selected: Date | null;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.router.navigate([''])
   }
 
   opened: boolean = false

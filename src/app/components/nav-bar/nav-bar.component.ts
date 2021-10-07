@@ -56,6 +56,7 @@ export class NavBarComponent implements OnInit, AfterViewInit {
       let year = res.getFullYear()
       console.log(res.getMonth().toString())
       this.router.navigate([`/reports/${year}-${month}-${day}`])
+      this.productService.showMessage('Pesquisa realizada')
     })
   }
 

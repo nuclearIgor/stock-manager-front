@@ -30,44 +30,53 @@ $background: #fff;
   }
 }
 
+.full-width-table {
+  width: 100%;
+}
 
-
-table {
-    min-width: 425px;
-    text-align: center;
-
-  //display: flex;
-  //flex-direction: column;
-
-  th {
-    font-size: 10px;
-    text-align: center;
-    //border: 1px solid red;
-    //text-align: center;
-    align-self: center;
-    //display: flex;
-    //justify-content: space-between;
-    width: 15%;
-    height: 40px;
-
-  }
-
-  tr {
+.modal-button-container{
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  button {
+    height: 40px;
+    margin: 5px;
+    text-align: center;
+
   }
+  .modal-action-button{
+    background-color: $sat-blue;
+    color: white;
+    width: 65%;
+    &:disabled {
+      filter: opacity(40%);
+      color: white;
+      &:hover{
+        cursor: not-allowed;
+      }
+    }
 
-  td {
-    width: 16.6%;
-    text-overflow: fade;
-
-    font-size: 12px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-right: $sat-blue 1px solid;
   }
+  .modal-cancel-button {
+    background-color: lightgray;
+    width: 50%;
 
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.msg-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.msg-error {
+  background-color: #e35e6b;
+  color: #fff;
 }
