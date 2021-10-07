@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SearchService} from "../../nav-bar/search.service";
+import {SearchService} from "../../../services/search.service";
 import {NgForm} from '@angular/forms'
 
 @Component({

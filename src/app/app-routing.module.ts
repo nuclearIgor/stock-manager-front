@@ -4,7 +4,7 @@ import {HomeComponent} from "./components/views/home/home.component";
 import {ProductUpdateComponent} from "./components/modals/product-update/product-update.component";
 import {ProductCreateComponent} from "./components/modals/product-create/product-create.component";
 import {ProductComponent} from "./components/views/product/product.component";
-import {ReportDateComponent} from "./components/views/reports/report-date/report-date.component";
+import {ReportDateComponent} from "./components/reports/report-date/report-date.component";
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: 'reports/:date',
     component: ReportDateComponent
-  }
+  },
 ];
 
 @NgModule({

@@ -1,62 +1,67 @@
 @import "../../../../styles";
 
 .upper-container {
-  width: 100%;
+  height: 150px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
-  form{
-    width: 100%;
+  .info-container{
+    margin-bottom: 15px;
+
+    h1, h3 {
+      font-size: 1rem;
+      color: darkslategray;
+    }
+
+    .info-display {
+      font-size: 1.3rem;
+      color: $sat-blue
+    }
+
+  }
+
+ .button-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
 
-    button {
-      background: $sat-green;
+    width: 300px;
 
-      color: white;
+   :first-child {
+     background: $sat-green;
 
-      height: 45px;
-      width: 150px;
+     color: white;
 
-      transition: opacity, width, height 150ms;
+     height: 45px;
+     width: 150px;
 
-      &:hover {
-        width: 160px;
-        height: 45px;
-        filter: opacity(85%);
-      }
-    }
+     transition: opacity, width, height 150ms;
 
+     &:hover {
+       width: 160px;
+       height: 45px;
+       filter: opacity(85%);
+     }
+   }
+
+
+   .button-delete {
+
+     height: 40px;
+     width: 130px;
+
+     transition: opacity, width, height 150ms;
+
+
+     &:hover {
+       width: 135px;
+       height: 40px;
+       filter: opacity(85%);
+     }
+   }
   }
 
-  > button {
-    margin-top: 15px;
-
-    height: 40px;
-    width: 130px;
-
-    transition: opacity, width, height 150ms;
-
-
-    &:hover {
-      width: 135px;
-      height: 40px;
-      filter: opacity(85%);
-    }
-  }
-
-}
-
-.lower-container {
-
-}
-
-@media screen and (min-width: 426px){
-  .upper-container{
-    display: flex;
-    //flex-direction: row;
-  }
 }

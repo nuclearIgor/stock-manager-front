@@ -1,0 +1,23 @@
+@import "src/styles";
+
+.page-container{
+
+  color: $sat-blue;
+  background-color: $background;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  i {
+    margin: 30px;
+    color: $sat-blue;
+    font-size: 80px;
+  }
+
+  h1 {
+    margin: 30px;
+  }
+
+}

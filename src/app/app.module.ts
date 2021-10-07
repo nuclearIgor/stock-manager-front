@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/views/home/home.component';
-import { ProductTableComponent } from './components/product/product-table/product-table.component';
+import { ProductTableComponent } from './components/product-table/product-table.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from "@angular/material/sidenav";
@@ -28,12 +28,16 @@ import {EffectsModule} from '@ngrx/effects'
 import {ProductsEffects} from "./store/effects";
 import { LogoComponent } from './components/logo/logo.component';
 import { NameSearchModalComponent } from './components/modals/name-search-modal/name-search-modal.component';
-import { ReportNameComponent } from './components/views/reports/report-name/report-name.component';
-import { ReportDateComponent } from './components/views/reports/report-date/report-date.component';
+import { ReportNameComponent } from './components/reports/report-name/report-name.component';
+import { ReportDateComponent } from './components/reports/report-date/report-date.component';
 import { ProductComponent } from './components/views/product/product.component';
 import {MatIconModule} from "@angular/material/icon";
 import { DeleteModalComponent } from './components/modals/delete-modal/delete-modal.component';
 import { DateSearchModalComponent } from './components/modals/date-search-modal/date-search-modal.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
     declarations: [
@@ -49,7 +53,8 @@ import { DateSearchModalComponent } from './components/modals/date-search-modal/
     ReportDateComponent,
     ProductComponent,
     DeleteModalComponent,
-    DateSearchModalComponent
+    DateSearchModalComponent,
+    NotFoundComponent,
     ],
     entryComponents: [NameSearchModalComponent],
     imports: [
@@ -69,11 +74,14 @@ import { DateSearchModalComponent } from './components/modals/date-search-modal/
         MatToolbarModule,
         MatDialogModule,
         MatSidenavModule,
+        MatSnackBarModule,
         StoreModule.forRoot({
             productsReducer: fromReducers.reducer
         }),
         EffectsModule.forRoot([ProductsEffects]),
         MatIconModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
   providers: [],
   bootstrap: [AppComponent]

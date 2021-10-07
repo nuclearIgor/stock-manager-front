@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {ProductService} from "../../../product/product.service";
-import {Entry} from "../entry.model";
+import {ProductService} from "../../../services/product.service";
+import {Entry} from "../../../models/entry.model";
 
 @Component({
   selector: 'app-report-name',

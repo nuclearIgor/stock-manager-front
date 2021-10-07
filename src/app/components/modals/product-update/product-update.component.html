@@ -2,6 +2,7 @@
     <mat-card-title>Novo lançamento</mat-card-title>
 
     <form #f="ngForm"  (ngSubmit)="data.onSubmit(f)" novalidate>
+        <div>
         <mat-form-field class="field">
             <input
             matInput
@@ -10,8 +11,11 @@
             required
             ngModel
             name="productName"
+            [disabled]="disabled"
             >
         </mat-form-field>
+        <i (click)="this.toggle()" class="material-icons">edit</i>
+        </div>
 
         <mat-form-field class="field">
             <input
@@ -50,9 +54,9 @@
                 required
             >
         </mat-form-field>
-
-        <button [disabled]="f.invalid" type="submit" [matDialogClose]="f">enviar</button>
-        <button  matDialogClose>cancelar</button>
-
+    <div class="modal-button-container">
+        <button class="modal-action-button" mat-button [disabled]="f.invalid" type="submit" [matDialogClose]="f">enviar</button>
+        <button mat-button class="modal-cancel-button" matDialogClose>cancelar</button>
+    </div>
     </form>
 </mat-card>

@@ -10,7 +10,7 @@
         </mat-icon>
     </button>
 
-    <app-logo (click)="navigate()"></app-logo>
+    <app-logo class="logo" (click)="navigate()"></app-logo>
 
     <span>
           <button *ngIf="sidenav.mode ==='side'" class="nav-hover"
@@ -36,12 +36,15 @@
                 </i>
                 Estoque
             </a>
+
+
             <a (click)="openDateDialog()" class="nav-hover">
                 <i class="material-icons">
                     search
                 </i>
                 Relatório por data
             </a>
+
             <button
             class="nav-hover"
             (click)="openNewProductDialog()"

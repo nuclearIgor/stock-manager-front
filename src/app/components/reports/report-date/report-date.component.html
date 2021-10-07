@@ -1,4 +1,4 @@
-<div class="mat-elevation-z8">
+<div *ngIf="results.length > 0" class="mat-elevation-z8">
     <table mat-table class="full-width-table" [dataSource]="results">
         <ng-container matColumnDef="productName">
             <th mat-header-cell *matHeaderCellDef>Produto</th>
@@ -25,3 +25,5 @@
 
     </table>
 </div>
+
+<app-not-found *ngIf="results.length < 1"></app-not-found>

@@ -1,13 +1,23 @@
-<div class="upper-container">
+<div *ngIf="!!product">
+    <div class="upper-container">
 
-    <button mat-raised-button (click)="openUpdateModal()">Novo lançamento</button>
+        <div class="info-container">
+            <h1>Produto: <span class="info-display">{{product.productName}}</span></h1>
+            <h3>Quantia em estoque: <span class="info-display">{{product.stock}}</span></h3>
+        </div>
 
-    <button mat-raised-button color="warn" (click)="openDeleteModal()">Excluir produto</button>
+    <div class="button-container">
+        <button mat-raised-button (click)="openUpdateModal()">Novo lançamento</button>
 
+        <button class="button-delete" mat-raised-button color="warn" (click)="openDeleteModal()">Excluir produto</button>
+    </div>
 
+    </div>
+
+    <div class="lower-container">
+        <h5>Relatório de entradas</h5>
+        <app-report-name></app-report-name>
+    </div>
 </div>
 
-<div class="lower-container">
-<h5>Relatório de entradas</h5>
-<app-report-name></app-report-name>
-</div>
+<app-not-found *ngIf="!product"></app-not-found>

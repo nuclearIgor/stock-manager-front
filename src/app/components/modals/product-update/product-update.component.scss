@@ -1,9 +1,6 @@
-form {
-  display: flex;
-  flex-direction: column;
-}
+@import "src/styles";
 
-.field{
-  margin: 8px;
-  width: 300px;
-}
+  i {
+    color: $sat-blue;
+  }
+

@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit} from '@angular/core';
-import {Product} from "../../product/product.model";
+import {Product} from "../../../models/product.model";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 export interface entryType {
@@ -33,6 +33,12 @@ export class ProductUpdateComponent implements OnInit{
     this.options = this.data.options
     this.onSubmit = this.data.onSubmit
      console.log(this.options)
+  }
+
+  disabled: boolean = true;
+
+  toggle(): boolean{
+    return this.disabled? this.disabled = false : this.disabled = false;
   }
 
 }

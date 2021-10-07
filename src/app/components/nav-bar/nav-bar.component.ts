@@ -4,12 +4,12 @@ import {NameSearchModalComponent} from "../modals/name-search-modal/name-search-
 import {Router} from "@angular/router";
 import {MatSidenav} from "@angular/material/sidenav";
 import {BreakpointObserver} from "@angular/cdk/layout";
-import {ReportDateComponent} from "../views/reports/report-date/report-date.component";
+import {ReportDateComponent} from "../reports/report-date/report-date.component";
 import {DateSearchModalComponent} from "../modals/date-search-modal/date-search-modal.component";
 import {ProductCreateComponent} from "../modals/product-create/product-create.component";
 import {NgForm} from "@angular/forms";
-import {Product} from "../product/product.model";
-import {ProductService} from "../product/product.service";
+import {Product} from "../../models/product.model";
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,7 +19,7 @@ import {ProductService} from "../product/product.service";
 export class NavBarComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
-
+  selected: Date | null;
   constructor(public dialog: MatDialog,
               public router: Router,
               private observer: BreakpointObserver,
@@ -50,9 +50,12 @@ export class NavBarComponent implements OnInit, AfterViewInit {
   openDateDialog(): void {
     let dialogRef = this.dialog.open(DateSearchModalComponent)
 
-    dialogRef.afterClosed().subscribe((res) => {
-      console.log(res)
-      this.router.navigate([`/reports/${res}`])
+    dialogRef.afterClosed().subscribe((res: Date) => {
+      let day = res.getDate().toString().length === 1 ? `0${res.getDate()}` : res.getDate()
+      let month = res.getMonth() < 9 ? `0${res.getMonth()+1}` : res.getMonth()+1
+      let year = res.getFullYear()
+      console.log(res.getMonth().toString())
+      this.router.navigate([`/reports/${year}-${month}-${day}`])
     })
   }
 
@@ -64,12 +67,10 @@ export class NavBarComponent implements OnInit, AfterViewInit {
       let res2 = res.split(' ')
       let res3 = res2.join('-')
 
-      let res4 = res3.split('-')
-      let res5 = res4.join(' ')
-      console.log(`res2: ${res2}, res3: ${res3}, res4: ${res4}, res5: ${res5}`)
+      if(res !== 'noaction') {
       this.router.navigate([`/product/${res3}`])
-      if(res !== "noaction"){
-      };
+        this.productService.showMessage('Pesquisa realizada')
+      }
     })
   };
 
@@ -96,6 +97,7 @@ export class NavBarComponent implements OnInit, AfterViewInit {
 
     this.productService.create(product).subscribe(() => {
       this.router.navigate([`/product/${product.productName}`])
+      this.productService.showMessage('Produto adicionado :)')
 
     })
   }
